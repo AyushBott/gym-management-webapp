@@ -13,15 +13,25 @@ export const AuthProvider = ({ children }) => {
         const storedUser = localStorage.getItem('user');
 
         if (token && storedUser) {
-            setUser(JSON.parse(storedUser));
-            // Verify token is still valid
+            try {
+                setUser(JSON.parse(storedUser));
+            } catch (e) {
+                // Invalid stored user, clear it
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+            }
+            // Verify token is still valid (don't block if API unavailable)
             api.get('/auth/me')
                 .then(response => {
                     setUser(response.data.user);
                     localStorage.setItem('user', JSON.stringify(response.data.user));
                 })
-                .catch(() => {
-                    logout();
+                .catch((error) => {
+                    // Only logout if it's an auth error, not a network error
+                    if (error.response?.status === 401) {
+                        logout();
+                    }
+                    // For network errors, keep the stored user
                 })
                 .finally(() => {
                     setLoading(false);
