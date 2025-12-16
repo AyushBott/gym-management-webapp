@@ -71,9 +71,6 @@ npm install
 npm run dev
 ```
 
-### Access
-- **Frontend**: http://localhost:5173
-- **Backend API**: http://localhost:5001
 
 ### Default Login
 - **Admin**: `admin@fitnesshub.com` / `Admin@123`
