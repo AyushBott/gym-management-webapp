@@ -1,8 +1,8 @@
-# FitClass - Premium Gym Management Web Application
+# Gym Management Web Application
 
-A modern, full-stack fitness platform for gym management, class bookings, and memberships. Built with React, Node.js, and Prisma with a stunning dark/light theme featuring the FitClass brand.
+A modern, full-stack fitness platform for gym management, class bookings, and memberships. Built with React, Node.js, and Prisma featuring stunning dark/light themes.
 
-![FitClass](https://img.shields.io/badge/FitClass-Premium%20Fitness-2c4a6e?style=for-the-badge)
+![Gym App](https://img.shields.io/badge/Gym-Management-2c4a6e?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js)
 ![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)
@@ -28,7 +28,7 @@ A modern, full-stack fitness platform for gym management, class bookings, and me
 ## 🎨 Design Highlights
 
 - **Dark & Light Themes** - Elegant dark mode with teal accents and bright light mode with navy blue
-- **FitClass Branding** - Custom logo with wing icon, watermark backgrounds
+- **Custom Branding** - Logo with wing icon, watermark backgrounds
 - **Geometric Hero Section** - Modern animated overlays
 - **Premium UI** - Glassmorphism, smooth animations, micro-interactions
 - **Responsive Design** - Mobile-first, works on all devices
@@ -123,7 +123,7 @@ gym-management-webapp/
 
 ## 📸 Screenshots
 
-*Coming soon - the app features a stunning dark theme with geometric hero section, animated testimonials, and premium UI elements.*
+*The app features a stunning dark theme with geometric hero section, animated testimonials, and premium UI elements.*
 
 ## 🤝 Contributing
 
@@ -135,6 +135,6 @@ MIT License - free to use for learning or commercial purposes.
 
 ---
 
-**Built with ❤️ for FitClass**
+**Built with ❤️**
 
-*Where your time gets the luxury it deserves* 💪🏋️‍♀️
+*Transform your fitness journey today!* 💪🏋️‍♀️
