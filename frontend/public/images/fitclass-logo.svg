@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="150" cy="300" r="140" fill="#1e3a5f"/>
+  
+  <path d="M 100 350 Q 140 280 200 240" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M 100 370 Q 150 300 220 250" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M 100 390 Q 160 320 240 260" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M 110 410 Q 165 340 240 280" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
+  
+  <text x="380" y="380" font-family="Arial, Helvetica, sans-serif" font-size="240" font-weight="bold" fill="#1e3a5f" letter-spacing="6">
+    FITCLASS
+  </text>
+</svg>

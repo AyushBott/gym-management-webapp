@@ -1,0 +1,276 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String              @id @default(uuid())
+  email             String              @unique
+  passwordHash      String?             @map("password_hash")
+  firstName         String?             @map("first_name")
+  lastName          String?             @map("last_name")
+  phone             String?
+  dateOfBirth       DateTime?           @map("date_of_birth") @db.Date
+  gender            String?
+  profileImageUrl   String?             @map("profile_image_url")
+  authProvider      String              @default("local") @map("auth_provider")
+  authProviderId    String?             @map("auth_provider_id")
+  emailVerified     Boolean             @default(false) @map("email_verified")
+  phoneVerified     Boolean             @default(false) @map("phone_verified")
+  role              String              @default("user")
+  isActive          Boolean             @default(true) @map("is_active")
+  createdAt         DateTime            @default(now()) @map("created_at")
+  updatedAt         DateTime            @updatedAt @map("updated_at")
+  
+  bookings          Booking[]
+  memberships       UserMembership[]
+  payments          Payment[]
+  blogPosts         BlogPost[]
+  notifications     Notification[]
+  assignedInquiries FranchiseInquiry[]
+
+  @@index([email])
+  @@index([phone])
+  @@map("users")
+}
+
+model FitnessCenter {
+  id              String    @id @default(uuid())
+  name            String
+  slug            String    @unique
+  description     String?
+  address         String
+  city            String
+  state           String?
+  country         String
+  pinCode         String?   @map("pin_code")
+  latitude        Decimal?  @db.Decimal(10, 8)
+  longitude       Decimal?  @db.Decimal(11, 8)
+  phone           String?
+  email           String?
+  images          Json?
+  amenities       Json?
+  operatingHours  Json?     @map("operating_hours")
+  isActive        Boolean   @default(true) @map("is_active")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  
+  sessions        Session[]
+
+  @@index([city])
+  @@index([slug])
+  @@map("fitness_centers")
+}
+
+model ActivityType {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  description String?
+  iconUrl     String?   @map("icon_url")
+  category    String?
+  isActive    Boolean   @default(true) @map("is_active")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  
+  sessions    Session[]
+
+  @@map("activity_types")
+}
+
+model Session {
+  id                String        @id @default(uuid())
+  centerId          String        @map("center_id")
+  activityTypeId    String        @map("activity_type_id")
+  title             String
+  description       String?
+  instructorName    String?       @map("instructor_name")
+  instructorImageUrl String?      @map("instructor_image_url")
+  startTime         DateTime      @map("start_time")
+  endTime           DateTime      @map("end_time")
+  durationMinutes   Int?          @map("duration_minutes")
+  maxCapacity       Int           @map("max_capacity")
+  currentBookings   Int           @default(0) @map("current_bookings")
+  difficultyLevel   String?       @map("difficulty_level")
+  isRecurring       Boolean       @default(false) @map("is_recurring")
+  recurrencePattern Json?         @map("recurrence_pattern")
+  priceCredits      Int           @default(0) @map("price_credits")
+  isActive          Boolean       @default(true) @map("is_active")
+  createdAt         DateTime      @default(now()) @map("created_at")
+  updatedAt         DateTime      @updatedAt @map("updated_at")
+  
+  center            FitnessCenter @relation(fields: [centerId], references: [id], onDelete: Cascade)
+  activityType      ActivityType  @relation(fields: [activityTypeId], references: [id])
+  bookings          Booking[]
+
+  @@index([centerId])
+  @@index([startTime])
+  @@index([activityTypeId])
+  @@map("sessions")
+}
+
+model Booking {
+  id                  String    @id @default(uuid())
+  userId              String    @map("user_id")
+  sessionId           String    @map("session_id")
+  bookingStatus       String    @default("confirmed") @map("booking_status")
+  bookedAt            DateTime  @default(now()) @map("booked_at")
+  cancelledAt         DateTime? @map("cancelled_at")
+  cancellationReason  String?   @map("cancellation_reason")
+  checkedIn           Boolean   @default(false) @map("checked_in")
+  checkedInAt         DateTime? @map("checked_in_at")
+  rating              Int?
+  review              String?
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+  
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  session             Session   @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, sessionId], name: "unique_user_session")
+  @@index([userId])
+  @@index([sessionId])
+  @@index([bookingStatus])
+  @@map("bookings")
+}
+
+model MembershipPlan {
+  id                    String           @id @default(uuid())
+  name                  String
+  slug                  String           @unique
+  description           String?
+  durationDays          Int              @map("duration_days")
+  price                 Decimal          @db.Decimal(10, 2)
+  currency              String           @default("INR")
+  features              Json?
+  maxBookingsPerMonth   Int?             @map("max_bookings_per_month")
+  accessType            String?          @map("access_type")
+  centerIds             Json?            @map("center_ids")
+  isPopular             Boolean          @default(false) @map("is_popular")
+  isActive              Boolean          @default(true) @map("is_active")
+  createdAt             DateTime         @default(now()) @map("created_at")
+  updatedAt             DateTime         @updatedAt @map("updated_at")
+  
+  userMemberships       UserMembership[]
+
+  @@map("membership_plans")
+}
+
+model UserMembership {
+  id            String         @id @default(uuid())
+  userId        String         @map("user_id")
+  planId        String         @map("plan_id")
+  startDate     DateTime       @map("start_date") @db.Date
+  endDate       DateTime       @map("end_date") @db.Date
+  status        String         @default("active")
+  autoRenew     Boolean        @default(false) @map("auto_renew")
+  bookingsUsed  Int            @default(0) @map("bookings_used")
+  paymentId     String?        @map("payment_id")
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan          MembershipPlan @relation(fields: [planId], references: [id])
+  payments      Payment[]
+
+  @@index([userId])
+  @@index([status])
+  @@map("user_memberships")
+}
+
+model Payment {
+  id                String          @id @default(uuid())
+  userId            String          @map("user_id")
+  membershipId      String?         @map("membership_id")
+  amount            Decimal         @db.Decimal(10, 2)
+  currency          String          @default("INR")
+  paymentGateway    String?         @map("payment_gateway")
+  gatewayPaymentId  String?         @map("gateway_payment_id")
+  gatewayOrderId    String?         @map("gateway_order_id")
+  paymentMethod     String?         @map("payment_method")
+  status            String          @default("pending")
+  paymentDate       DateTime?       @map("payment_date")
+  refundAmount      Decimal?        @map("refund_amount") @db.Decimal(10, 2)
+  refundDate        DateTime?       @map("refund_date")
+  metadata          Json?
+  createdAt         DateTime        @default(now()) @map("created_at")
+  updatedAt         DateTime        @updatedAt @map("updated_at")
+  
+  user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  membership        UserMembership? @relation(fields: [membershipId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@map("payments")
+}
+
+model BlogPost {
+  id                String    @id @default(uuid())
+  title             String
+  slug              String    @unique
+  excerpt           String?   @db.Text
+  content           String    @db.Text
+  featuredImageUrl  String?   @map("featured_image_url")
+  authorId          String?   @map("author_id")
+  category          String?
+  tags              Json?
+  readTimeMinutes   Int?      @map("read_time_minutes")
+  isPublished       Boolean   @default(false) @map("is_published")
+  publishedAt       DateTime? @map("published_at")
+  viewsCount        Int       @default(0) @map("views_count")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+  
+  author            User?     @relation(fields: [authorId], references: [id])
+
+  @@index([slug])
+  @@index([isPublished, publishedAt])
+  @@map("blog_posts")
+}
+
+model Notification {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  type      String?
+  channel   String?
+  title     String?
+  message   String?
+  data      Json?
+  status    String    @default("pending")
+  sentAt    DateTime? @map("sent_at")
+  readAt    DateTime? @map("read_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+  @@map("notifications")
+}
+
+model FranchiseInquiry {
+  id                  String    @id @default(uuid())
+  fullName            String    @map("full_name")
+  email               String
+  phone               String
+  city                String?
+  investmentCapacity  String?   @map("investment_capacity")
+  message             String?
+  status              String    @default("new")
+  notes               String?
+  assignedTo          String?   @map("assigned_to")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+  
+  assignedUser        User?     @relation(fields: [assignedTo], references: [id])
+
+  @@index([status])
+  @@index([email])
+  @@map("franchise_inquiries")
+}
