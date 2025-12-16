@@ -1,233 +1,140 @@
-# FitnessHub - Modern Fitness Platform
+# FitClass - Premium Gym Management Web Application
 
-A comprehensive web platform inspired by cult.fit that enables users to browse fitness centers, book sessions, manage memberships, and access wellness content.
+A modern, full-stack fitness platform for gym management, class bookings, and memberships. Built with React, Node.js, and Prisma with a stunning dark/light theme featuring the FitClass brand.
 
-![Tech Stack](https://img.shields.io/badge/Stack-PERN-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
+![FitClass](https://img.shields.io/badge/FitClass-Premium%20Fitness-2c4a6e?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js)
+![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-## 🚀 Features
+## ✨ Features
 
-### For Users
-- **User Authentication**: Email/password registration and login with JWT tokens
-- **Browse Centers**: Explore fitness centers across cities with detailed information
-- **Book Sessions**: Browse and book group workout sessions, yoga, strength training, and more
-- **Membership Management**: View and purchase membership plans with payment integration
-- **User Dashboard**: Manage bookings, track memberships, and update profile
-- **Blog & Content**: Read health and wellness articles
+### 🏋️ For Users
+- **Browse Centers** - Explore fitness locations across cities
+- **Book Classes** - Schedule yoga, strength training, cardio, and boxing sessions
+- **Membership Plans** - Purchase and manage gym memberships
+- **Personal Dashboard** - Track bookings and profile management
+- **Blog & Wellness** - Health and fitness articles
 
-### For Franchise Partners
-- **Franchise Inquiry**: Submit franchise applications through dedicated landing page
+### 🏢 For Franchise Partners
+- **Franchise Portal** - Submit franchise applications and inquiries
 
-### For Administrators
-- **Admin Dashboard**: Analytics and statistics overview
-- **Content Management**: Manage centers, sessions, users, blog posts, and franchise inquiries
-- **Payment Tracking**: Monitor membership purchases and revenue
+### ⚡ For Administrators
+- **Admin Dashboard** - Analytics and statistics
+- **Content Management** - Manage centers, sessions, users, and blog posts
+- **Revenue Tracking** - Monitor payments and memberships
 
-## 🛠️ Technology Stack
+## 🎨 Design Highlights
 
-### Backend
-- **Runtime**: Node.js with Express.js
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: JWT (JSON Web Tokens) + bcrypt
-- **Payment Gateways**: Stripe & Razorpay
-- **Security**: Helmet.js, CORS, rate limiting
+- **Dark & Light Themes** - Elegant dark mode with teal accents and bright light mode with navy blue
+- **FitClass Branding** - Custom logo with wing icon, watermark backgrounds
+- **Geometric Hero Section** - Modern animated overlays
+- **Premium UI** - Glassmorphism, smooth animations, micro-interactions
+- **Responsive Design** - Mobile-first, works on all devices
 
-### Frontend
-- **Framework**: React 18 with Vite
-- **Routing**: React Router v6
-- **HTTP Client**: Axios with interceptors
-- **Styling**: Modern CSS with design system
-- **State Management**: Context API
+## 🛠️ Tech Stack
 
-## 📋 Prerequisites
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React 18, Vite, React Router v6, Context API |
+| **Backend** | Node.js, Express.js, JWT Authentication |
+| **Database** | SQLite (dev) / PostgreSQL (prod) with Prisma ORM |
+| **Styling** | Custom CSS Design System, CSS Variables |
+| **Payments** | Stripe & Razorpay Integration |
 
-- Node.js (v18 or higher)
-- PostgreSQL (v14 or higher)
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js v18+
 - npm or yarn
 
-## 🔧 Installation & Setup
-
-### 1. Clone the Repository
-```bash
-cd /Uses/ayushbot/Downloads/gymwebsite
-```
-
-### 2. Backend Setup
+### Installation
 
 ```bash
-# Navigate to backend directory
+# Clone the repository
+git clone https://github.com/AyushBott/gym-management-webapp.git
+cd gym-management-webapp
+
+# Backend Setup
 cd backend
-
-# Install dependencies
 npm install
-
-# Create .env file from example
 cp .env.example .env
-
-# Edit .env and configure your database and other settings
-# Minimum required:
-# DATABASE_URL="postgresql://username:password@localhost:5432/fitness_platform"
-# JWT_SECRET=your-secret-key
-
-# Generate Prisma client
 npm run prisma:generate
-
-# Run database migrations
 npm run prisma:migrate
-
-# Seed the database
 npm run seed
-
-# Start the development server
 npm run dev
-```
 
-The backend server will start on `http://localhost:5000`
-
-### 3. Frontend Setup
-
-```bash
-# Open a new terminal and navigate to frontend directory
+# Frontend Setup (new terminal)
 cd frontend
-
-# Install dependencies
 npm install
-
-# Start the development server
 npm run dev
 ```
 
-The frontend will start on `http://localhost:5173`
+### Access
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:5001
 
-## 🎯 Quick Start
-
-1. **Access the application**: Open `http://localhost:5173` in your browser
-
-2. **Login as Admin**:
-   - Email: `admin@fitnesshub.com`
-   - Password: `Admin@123`
-
-3. **Or Register a New User**: Click "Sign Up" and create your account
-
-4. **Browse Centers**: Navigate to Centers to explore fitness locations
-
-5. **Book a Session**: View available sessions and book (requires active membership)
-
-6. **Purchase Membership**: Go to Memberships to purchase a plan
+### Default Login
+- **Admin**: `admin@fitnesshub.com` / `Admin@123`
 
 ## 📁 Project Structure
 
 ```
-gymwebsite/
+gym-management-webapp/
 ├── backend/
-│   ├── controllers/         # Request handlers
-│   ├── middleware/          # Auth, validation middleware
-│   ├── routes/              # API routes
-│   ├── prisma/              # Database schema & migrations
-│   ├── server.js            # Express app setup
-│   └── package.json
+│   ├── controllers/     # API route handlers
+│   ├── middleware/      # Auth, validation
+│   ├── routes/          # Express routes
+│   ├── prisma/          # Database schema & migrations
+│   └── server.js        # App entry point
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/      # Reusable components
-│   │   ├── pages/           # Page components
-│   │   ├── context/         # React Context (Auth)
-│   │   ├── utils/           # API client, helpers
-│   │   ├── App.jsx          # Main app component
-│   │   └── index.css        # Global styles & design system
-│   ├── index.html
-│   └── package.json
+│   │   ├── components/  # Navbar, Footer, etc.
+│   │   ├── pages/       # Page components
+│   │   ├── context/     # Auth & Theme providers
+│   │   └── index.css    # Design system
+│   └── public/images/   # Logos, backgrounds, assets
 │
 └── README.md
 ```
 
 ## 🔌 API Endpoints
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
+| Endpoint | Description |
+|----------|-------------|
+| `POST /api/auth/register` | Register user |
+| `POST /api/auth/login` | User login |
+| `GET /api/centers` | List fitness centers |
+| `GET /api/sessions` | List workout sessions |
+| `POST /api/bookings` | Book a session |
+| `GET /api/memberships/plans` | List membership plans |
+| `GET /api/admin/dashboard/stats` | Admin analytics |
 
-### Centers & Sessions
-- `GET /api/centers` - List all centers
-- `GET /api/centers/:slug` - Get center details
-- `GET /api/sessions` - List all sessions
-- `GET /api/sessions/:id` - Get session details
+## 🎯 Brand Colors
 
-### Bookings (Protected)
-- `POST /api/bookings` - Create booking
-- `GET /api/bookings` - Get user bookings
-- `DELETE /api/bookings/:id` - Cancel booking
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Navy Blue | `#2c4a6e` | Primary brand, geometric shapes |
+| Teal | `#53b9ea` | Accent, CTAs, highlights |
+| Dark Base | `#0d0d0d` | Dark mode background |
+| White | `#ffffff` | Light mode background |
 
-### Memberships
-- `GET /api/memberships/plans` - List membership plans
-- `POST /api/memberships/purchase` - Purchase membership (Protected)
-- `GET /api/memberships/my-memberships` - Get user memberships (Protected)
+## 📸 Screenshots
 
-### Admin (Protected - Admin Only)
-- `GET /api/admin/dashboard/stats` - Get dashboard statistics
-- `POST /api/admin/centers` - Create center
-- `POST /api/admin/sessions` - Create session
-- `GET /api/admin/users` - List users
-- And more...
-
-## 🎨 Design Features
-
-- **Modern UI**: Vibrant gradient color scheme with purple/pink theme
-- **Responsive Design**: Mobile-first approach with responsive grids
-- **Smooth Animations**: Micro-interactions and transitions
-- **Glassmorphism**: Modern glass effects on navigation
-- **Custom Scrollbar**: Styled scrollbars matching theme
-- **Loading States**: Spinners and skeleton screens
-
-## 💳 Payment Integration
-
-The platform supports both Stripe and Razorpay for membership purchases:
-
-- Configure API keys in backend `.env`
-- Webhooks handle payment confirmations
-- Test mode available for development
-
-## 🔒 Security Features
-
-- JWT-based authentication
-- Password hashing with bcrypt
-- Rate limiting on API endpoints
-- CORS configuration
-- Helmet.js security headers
-- Input validation with Joi
-
-## 📝 Default Data
-
-After running the seed script, you'll have:
-- 1 Admin user
-- 3 Fitness centers (Mumbai, Bangalore, Pune)
-- 6 Activity types
-- Multiple sessions
-- 3 Membership plans
-- 3 Blog posts
+*Coming soon - the app features a stunning dark theme with geometric hero section, animated testimonials, and premium UI elements.*
 
 ## 🤝 Contributing
 
-This is a demonstration project. Feel free to fork and customize for your needs!
+This is a demonstration project. Fork and customize for your needs!
 
 ## 📄 License
 
-MIT License - feel free to use this project for learning or commercial purposes.
-
-## 🐛 Known Limitations
-
-- Email/SMS notifications require additional configuration
-- Social OAuth needs Google/Facebook app setup
-- Payment webhooks need public URL (use ngrok for local testing)
-- Admin panel has basic functionality (CRUD interfaces are stubs)
-
-## 📞 Support
-
-For issues or questions, please open an issue on GitHub.
+MIT License - free to use for learning or commercial purposes.
 
 ---
 
-**Built with ❤️ by Antigravity** 
+**Built with ❤️ for FitClass**
 
-Transform your fitness journey today! 💪🏋️‍♀️
+*Where your time gets the luxury it deserves* 💪🏋️‍♀️
