@@ -15,32 +15,37 @@ export const useScrollReveal = (options = {}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const element = ref.current;
-        if (!element) return;
+        try {
+            const element = ref.current;
+            if (!element) return;
 
-        // Respect reduced motion preferences
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) {
-            setIsVisible(true);
-            return;
-        }
+            // Respect reduced motion preferences
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) {
+                setIsVisible(true);
+                return;
+            }
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    if (triggerOnce) {
-                        observer.unobserve(element);
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        if (triggerOnce) {
+                            observer.unobserve(element);
+                        }
+                    } else if (!triggerOnce) {
+                        setIsVisible(false);
                     }
-                } else if (!triggerOnce) {
-                    setIsVisible(false);
-                }
-            },
-            { threshold, rootMargin }
-        );
+                },
+                { threshold, rootMargin }
+            );
 
-        observer.observe(element);
-        return () => observer.disconnect();
+            observer.observe(element);
+            return () => observer.disconnect();
+        } catch (error) {
+            console.error('useScrollReveal error:', error);
+            setIsVisible(true); // Show content on error
+        }
     }, [threshold, triggerOnce, rootMargin]);
 
     return [ref, isVisible];

@@ -82,9 +82,12 @@ const Home = () => {
     const fetchFeaturedContent = async () => {
         try {
             const centersRes = await api.get('/centers?limit=3');
-            setFeaturedCenters(centersRes.data.centers);
+            // Safely set centers, defaulting to empty array if data is undefined
+            setFeaturedCenters(centersRes?.data?.centers || []);
         } catch (error) {
             console.error('Error fetching featured content:', error);
+            // Ensure we always have an array even on error
+            setFeaturedCenters([]);
         }
     };
 
