@@ -543,9 +543,28 @@
 }
 
 .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: var(--spacing-lg);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--spacing-lg);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-secondary) var(--color-gray-100);
+}
+
+.plans-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.plans-grid::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+    border-radius: 3px;
+}
+
+.plans-grid::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 3px;
 }
 
 .plan-card {
@@ -557,6 +576,9 @@
     opacity: 0;
     transform: translateY(30px);
     transition: all var(--motion-base) var(--ease-interactive);
+    min-width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
 }
 
 .plan-card:hover {
