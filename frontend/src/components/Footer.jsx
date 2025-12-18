@@ -65,9 +65,15 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <p className="copyright">© 2025 FitnessHub Pvt. Ltd. All rights reserved.</p>
                     <div className="social-links">
-                        <a href="https://instagram.com/fitclass.india" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
-                        <a href="https://youtube.com/@fitclass" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
-                        <a href="https://linkedin.com/company/fitclass-india" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LI</a>
+                        <a href="https://instagram.com/fitclass.india" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <img src="/images/social-instagram.png" alt="Instagram" className="social-icon" />
+                        </a>
+                        <a href="https://youtube.com/@fitclass" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <img src="/images/social-youtube.png" alt="YouTube" className="social-icon" />
+                        </a>
+                        <a href="https://linkedin.com/company/fitclass-india" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <img src="/images/social-linkedin.png" alt="LinkedIn" className="social-icon" />
+                        </a>
                     </div>
                 </div>
             </div>
