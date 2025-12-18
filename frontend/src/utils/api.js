@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+// Use Render backend in production, local proxy in development
+const API_BASE_URL = import.meta.env.VITE_API_URL ||
+    (import.meta.env.PROD ? 'https://gym-management-webapp-api.onrender.com/api' : '/api');
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || '/api',
+    baseURL: API_BASE_URL,
     headers: {
         'Content-Type': 'application/json'
     }
