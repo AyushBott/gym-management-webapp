@@ -101,30 +101,17 @@ const Contact = () => {
 
     return (
         <div className="contact-page">
-            {/* Cinematic Hero Section */}
-            <section className={`contact-hero ${heroLoaded ? 'loaded' : ''}`}>
-                <div className="hero-bg-overlay"></div>
-                <div className="hero-gradient"></div>
-                <div className="hero-content">
+            {/* Page Header */}
+            <div className="contact-header">
+                <div className="container">
                     <div className="double-arrow">
                         <span className="arrow-icon">»</span>
                         <span className="arrow-icon">»</span>
                     </div>
-                    <h1 className="hero-title">
-                        Get In <span className="text-accent">Touch</span>
-                    </h1>
-                    <p className="hero-subtitle">
-                        We're here to help you start your transformation journey
-                    </p>
-                    <button onClick={scrollToForm} className="btn btn-primary hero-cta">
-                        Send a Message
-                    </button>
+                    <h1>Get In <span className="text-accent">Touch</span></h1>
+                    <p>We're here to help you start your transformation journey</p>
                 </div>
-                <div className="hero-scroll-indicator">
-                    <span>Scroll</span>
-                    <div className="scroll-line"></div>
-                </div>
-            </section>
+            </div>
 
             {/* Quick Contact Cards */}
             <section className="contact-methods-section">
