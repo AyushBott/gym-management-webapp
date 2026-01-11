@@ -2,14 +2,17 @@
 
 The application requires a database. Here are your options:
 
-## Option 1: Install PostgreSQL (Recommended for Production-like Setup)
+## Option 1: Install MySQL (Recommended)
 
-### On Mac:
+### On Mac (using Homebrew):
 ```bash
-brew install postgresql@14
-brew services start postgresql@14
-createdb fitness_platform
+brew install mysql
+brew services start mysql
+# Default root user usually has no password.
+# You might need to secure it or create a user.
 ```
+
+If you use a GUI like DBngin or MAMP, just start the MySQL server on port 3306.
 
 Then run:
 ```bash

@@ -1,0 +1,159 @@
+/* Admin Layout */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-background);
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 250px;
+    background-color: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-sidebar-header {
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-sidebar-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.admin-nav-item {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-dim);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.admin-nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+}
+
+.admin-nav-item.active {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    /* Use dark text on primary color */
+}
+
+/* Main Content */
+.admin-content {
+    flex: 1;
+    padding: var(--spacing-2xl);
+    overflow-y: auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Data Tables */
+.admin-table-container {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: var(--color-text-dim);
+    text-transform: uppercase;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.05em;
+}
+
+.admin-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background-color: rgba(var(--color-success-rgb), 0.1);
+    color: var(--color-success);
+}
+
+.status-inactive {
+    background-color: rgba(var(--color-error-rgb), 0.1);
+    color: var(--color-error);
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.btn-edit {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+    margin-right: var(--spacing-xs);
+}
+
+.btn-edit:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-delete {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-error);
+}
+
+.btn-delete:hover {
+    background-color: var(--color-error);
+    color: white;
+}

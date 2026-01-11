@@ -19,11 +19,11 @@ import MyMemberships from './pages/MyMemberships';
 import Profile from './pages/Profile';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
-import ManageCenters from './pages/admin/ManageCenters';
-import ManageSessions from './pages/admin/ManageSessions';
-import ManageUsers from './pages/admin/ManageUsers';
-import ManageBlog from './pages/admin/ManageBlog';
-import ManageInquiries from './pages/admin/ManageInquiries';
+import CentersManager from './pages/admin/CentersManager';
+import UsersManager from './pages/admin/UsersManager';
+// import ManageSessions from './pages/admin/ManageSessions';
+// import ManageBlog from './pages/admin/ManageBlog';
+// import ManageInquiries from './pages/admin/ManageInquiries';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -54,11 +54,11 @@ function App() {
                     {/* Protected Admin Routes */}
                     <Route path="/admin" element={<ProtectedRoute requireAdmin><AdminLayout /></ProtectedRoute>}>
                         <Route index element={<AdminDashboard />} />
-                        <Route path="centers" element={<ManageCenters />} />
-                        <Route path="sessions" element={<ManageSessions />} />
-                        <Route path="users" element={<ManageUsers />} />
-                        <Route path="blog" element={<ManageBlog />} />
-                        <Route path="inquiries" element={<ManageInquiries />} />
+                        <Route path="centers" element={<CentersManager />} />
+                        <Route path="users" element={<UsersManager />} />
+                        {/* <Route path="sessions" element={<ManageSessions />} /> */}
+                        {/* <Route path="blog" element={<ManageBlog />} /> */}
+                        {/* <Route path="inquiries" element={<ManageInquiries />} /> */}
                     </Route>
                 </Routes>
             </main>

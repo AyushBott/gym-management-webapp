@@ -21,7 +21,9 @@ const AdminDashboard = () => {
 
     return (
         <div>
-            <h1>Admin Dashboard</h1>
+            <div className="admin-header">
+                <h1>Dashboard Overview</h1>
+            </div>
             <div className="grid grid-4" style={{ marginTop: 'var(--spacing-2xl)' }}>
                 <div className="card">
                     <h3>Total Users</h3>
