@@ -32,6 +32,7 @@ const Navbar = () => {
 
     const navLinks = [
         { path: '/about', label: 'About' },
+        { path: '/gallery', label: 'Gallery' },
         { path: '/centers', label: 'Locations' },
         { path: '/sessions', label: 'Classes' },
         { path: '/memberships', label: 'Membership' },

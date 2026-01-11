@@ -27,8 +27,12 @@ const CenterDetail = () => {
 
     return (
         <div className="container section">
-            <div style={{ height: '300px', background: 'var(--gradient-primary)', borderRadius: 'var(--radius-xl)', marginBottom: 'var(--spacing-2xl)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '5rem' }}>
-                🏋️
+            <div style={{ height: '300px', borderRadius: 'var(--radius-xl)', marginBottom: 'var(--spacing-2xl)', overflow: 'hidden' }}>
+                <img
+                    src={center.image || '/images/gym/gym-floor-main.jpg'}
+                    alt={center.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
             </div>
 
             <h1>{center.name}</h1>

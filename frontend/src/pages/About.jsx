@@ -49,7 +49,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className="story-image">
-                            <img src="/images/gym-center-default.png" alt="FitClass Center" />
+                            <img src="/images/gym/reception-lounge.jpg" alt="FitClass Center" />
                         </div>
                     </div>
                 </div>

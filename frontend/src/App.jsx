@@ -12,6 +12,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Franchise from './pages/Franchise';
 import About from './pages/About';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Dashboard from './pages/Dashboard';
 import MyBookings from './pages/MyBookings';
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/franchise" element={<Franchise />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contact" element={<Contact />} />
 
                     {/* Protected User Routes */}

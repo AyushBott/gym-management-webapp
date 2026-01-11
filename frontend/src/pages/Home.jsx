@@ -115,124 +115,124 @@ const Home = () => {
             quote: "This gym is open 24 hours and is strategically located, which perfectly fits my busy schedule.",
             name: "Cristiano A.",
             duration: "4-Month Member",
-            avatar: "/images/trainer-1.png"
+            avatar: "/images/trainer-1.jpg"
         },
         {
             quote: "Just 3 months at FitClass, and I've already felt a massive change! The trainers are incredibly supportive, and the facilities are top-notch.",
             name: "Andi P.",
             duration: "6-Month Member",
-            avatar: "/images/trainer-2.png"
+            avatar: "/images/trainer-2.jpg"
         },
         {
             quote: "I was a bit skeptical at first, but the training program at FitClass exceeded all my expectations.",
             name: "Budi S.",
             duration: "8-Month Member",
-            avatar: "/images/trainer-3.png"
+            avatar: "/images/trainer-3.jpg"
         },
         {
             quote: "The classes are always fun and I've become so much more motivated. I look forward to my workouts because of the amazing trainers and motivating friends.",
             name: "Maya K.",
             duration: "5-Month Member",
-            avatar: "/images/trainer-4.png"
+            avatar: "/images/trainer-4.jpg"
         },
         {
             quote: "Amazing transformation in just 2 months! The personalized nutrition plans combined with expert training made all the difference.",
             name: "Rahul M.",
             duration: "2-Month Member",
-            avatar: "/images/trainer-1.png"
+            avatar: "/images/trainer-1.jpg"
         },
         {
             quote: "The yoga classes here are exceptional. Perfect blend of traditional techniques with modern wellness approaches.",
             name: "Sneha T.",
             duration: "9-Month Member",
-            avatar: "/images/trainer-2.png"
+            avatar: "/images/trainer-2.jpg"
         },
         {
             quote: "From beginner to fitness enthusiast - FitClass made my transformation possible with their step-by-step guidance.",
             name: "Vikram P.",
             duration: "1-Year Member",
-            avatar: "/images/trainer-3.png"
+            avatar: "/images/trainer-3.jpg"
         },
         // Row 2 testimonials
         {
             quote: "After an injury, I needed a place that could guide me back to my best shape. FitClass provided expert guidance and a safe environment.",
             name: "Samsulek",
             duration: "1-Year Member",
-            avatar: "/images/trainer-4.png"
+            avatar: "/images/trainer-4.jpg"
         },
         {
             quote: "I never thought I'd be this enthusiastic about working out. The community at FitClass is so welcoming and inclusive. I've made so many new friends!",
             name: "Ari Irham",
             duration: "3-Month Member",
-            avatar: "/images/trainer-1.png"
+            avatar: "/images/trainer-1.jpg"
         },
         {
             quote: "The facilities are incredibly comprehensive, from free weights to cardio areas, all modern and well-maintained.",
             name: "Iqbal Ramadhan",
             duration: "10-Month Member",
-            avatar: "/images/trainer-2.png"
+            avatar: "/images/trainer-2.jpg"
         },
         {
             quote: "Best decision I ever made was joining FitClass. Lost 15kg in 6 months with the help of my personal trainer!",
             name: "Priya S.",
             duration: "7-Month Member",
-            avatar: "/images/trainer-3.png"
+            avatar: "/images/trainer-3.jpg"
         },
         {
             quote: "The group fitness classes are incredible! High energy, great music, and instructors who really push you to achieve more.",
             name: "Ananya R.",
             duration: "4-Month Member",
-            avatar: "/images/trainer-4.png"
+            avatar: "/images/trainer-4.jpg"
         },
         {
             quote: "Clean, modern facilities with top-of-the-line equipment. The staff is always helpful and the atmosphere is motivating.",
             name: "Karthik N.",
             duration: "6-Month Member",
-            avatar: "/images/trainer-1.png"
+            avatar: "/images/trainer-1.jpg"
         },
         {
             quote: "FitClass has become my second home. The 24/7 access means I can work out whenever it suits my schedule.",
             name: "Deepa V.",
             duration: "11-Month Member",
-            avatar: "/images/trainer-2.png"
+            avatar: "/images/trainer-2.jpg"
         }
     ];
 
     const facilities = [
         {
-            name: 'Functional Training Area',
-            image: '/images/facility-functional.png',
-            description: 'Our functional training area features kettlebells, battle ropes, TRX systems, and plyometric boxes. Perfect for dynamic, full-body workouts that improve strength, flexibility, and coordination.'
+            name: 'Main Gym Floor',
+            image: '/images/gym/gym-floor-main.jpg',
+            description: 'Our expansive gym floor features premium FitClass branded equipment, a functional training track, and state-of-the-art strength machines. Designed for serious athletes and fitness enthusiasts.'
         },
         {
-            name: 'Locker Rooms & Showers',
-            image: '/images/facility-locker.png',
-            description: 'Luxury locker rooms with premium amenities, spacious showers, complimentary toiletries, and secure storage. Experience spa-like comfort before and after your workout.'
+            name: 'Dance & Aerobics Studio',
+            image: '/images/gym/studio-aerobics-dance.jpg',
+            description: 'Dynamic studio space for Zumba, aerobics, and dance fitness classes. Mirrored walls, premium sound systems, and energizing atmosphere for group workouts.'
+        },
+        {
+            name: 'Yoga & Balance Studio',
+            image: '/images/gym/studio-yoga-class.jpg',
+            description: 'Serene yoga studio featuring stability balls, mats, and a calming "Find Your Balance" ambiance. Perfect for yoga, pilates, and mindfulness sessions.'
+        },
+        {
+            name: 'Boxing & Functional Training',
+            image: '/images/gym/studio-boxing-balance.jpg',
+            description: 'Dedicated functional training area with punching bags, kettlebells, dumbbells, and stability equipment. Build strength, agility, and coordination.'
         },
         {
             name: 'Cardio Zone',
-            image: '/images/facility-cardio.png',
-            description: 'State-of-the-art cardio equipment including treadmills, ellipticals, rowing machines, and stationary bikes. Each machine features personal screens and heart rate monitoring.'
+            image: '/images/gym/cardio-treadmills.jpg',
+            description: 'State-of-the-art cardio equipment including rows of premium treadmills, ellipticals, and rowing machines. Each machine features personal screens with scenic views.'
         },
         {
-            name: 'Free Weight Area',
-            image: '/images/facility-weights.png',
-            description: 'Our spacious free weight area is equipped with a wide range of dumbbells, barbells, squat racks, and benches, catering to all strength levels. Designed for optimal safety and performance.'
+            name: 'Locker Rooms & Showers',
+            image: '/images/gym/locker-room-showers.jpg',
+            description: 'Luxury locker rooms with spacious wooden storage, designer showers including Jacuzzi, separate facilities for men, women, and unisex options.'
         },
         {
-            name: 'Group Class Studio',
-            image: '/images/facility-group.png',
-            description: 'Dedicated studio space for yoga, pilates, HIIT, spinning, and dance classes. Featuring premium sound systems and climate control for the perfect group workout experience.'
-        },
-        {
-            name: 'Recovery Zone',
-            image: '/images/facility-recovery.png',
-            description: 'Complete recovery suite with foam rollers, stretching areas, massage chairs, and cryotherapy options. Essential for muscle recovery and injury prevention.'
-        },
-        {
-            name: 'Nutrition Bar',
-            image: '/images/facility-nutrition.png',
-            description: 'Freshly made smoothies, protein shakes, and healthy snacks. Our nutrition experts can help you fuel your body with the right pre and post-workout nutrition.'
+            name: 'Reception & Lounge',
+            image: '/images/gym/reception-desk.jpg',
+            description: 'Elegant reception area with modern design, comfortable seating, and professional staff ready to assist. Experience luxury from the moment you walk in.'
         }
     ];
 
@@ -297,10 +297,10 @@ const Home = () => {
                         </div>
                         <div className={`training-images ${trainingVisible ? 'reveal' : ''}`}>
                             <div className="training-image-main">
-                                <img src="/images/personal-training-1.png" alt="Personal Training" loading="lazy" />
+                                <img src="/images/gym/gym-floor-main.jpg" alt="Personal Training" loading="lazy" />
                             </div>
                             <div className="training-image-secondary">
-                                <img src="/images/personal-training-2.png" alt="Group Training" loading="lazy" />
+                                <img src="/images/gym/studio-kettlebells.jpg" alt="Group Training" loading="lazy" />
                                 <div className="trainers-badge">
                                     <span className="trainers-count">+10</span>
                                     <span className="trainers-label">Personal Trainers</span>
@@ -373,10 +373,10 @@ const Home = () => {
                     </div>
                     <div className="success-images">
                         <div className="success-image">
-                            <img src="/images/success-stories-bg.png" alt="Success Story" loading="lazy" />
+                            <img src="/images/gym/studio-wide-view.jpg" alt="Success Story" loading="lazy" />
                         </div>
                         <div className="success-image">
-                            <img src="/images/personal-training-1.png" alt="Training" loading="lazy" />
+                            <img src="/images/gym/cardio-treadmills.jpg" alt="Training" loading="lazy" />
                         </div>
                     </div>
                     <div className="success-stats">
@@ -518,7 +518,7 @@ const Home = () => {
                             </form>
                         </div>
                         <div className={`newsletter-image ${newsletterVisible ? 'reveal' : ''}`}>
-                            <img src="/images/hero-gym-dark.png" alt="Gym" loading="lazy" />
+                            <img src="/images/gym/building-exterior.jpg" alt="FitClass Gym Building" loading="lazy" />
                         </div>
                     </div>
                 </div>

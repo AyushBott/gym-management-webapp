@@ -23,6 +23,7 @@ const Footer = () => {
                         <h4>Explore</h4>
                         <ul>
                             <li><Link to="/about">About</Link></li>
+                            <li><Link to="/gallery">Gallery</Link></li>
                             <li><Link to="/centers">Locations</Link></li>
                             <li><Link to="/sessions">Classes</Link></li>
                             <li><Link to="/memberships">Membership</Link></li>

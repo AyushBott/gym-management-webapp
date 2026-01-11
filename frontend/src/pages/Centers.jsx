@@ -53,7 +53,7 @@ const Centers = () => {
                     <Link to={`/centers/${center.slug}`} key={center.id} className="card">
                         <div style={{ height: '200px', marginBottom: 'var(--spacing-lg)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
                             <img
-                                src={center.image || '/images/gym-center-default.png'}
+                                src={center.image || '/images/gym/building-exterior.jpg'}
                                 alt={center.name}
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
