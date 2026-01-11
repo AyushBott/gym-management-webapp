@@ -90,25 +90,22 @@ const Home = () => {
 
     const plans = [
         {
-            name: 'Premium',
-            price: '320',
+            name: 'Prime',
+            price: '40,000',
+            featured: false,
+            features: ['Full Gym Access', 'Group Classes', 'Locker Room', 'Basic Equipment']
+        },
+        {
+            name: 'Classic',
+            price: '60,000',
             featured: true,
-            features: ['Professional Trainers', '24/7 Access', 'Personal Diet Guidance', 'Free Parking']
+            features: ['All Prime Features', 'Personal Training Sessions', '24/7 Access', 'Nutrition Guidance']
         },
         {
-            name: 'Advanced',
-            price: '1200',
-            features: ['Access to all equipment', 'HIIT/Strength plus classes', '2 personal training sessions']
-        },
-        {
-            name: 'Basic',
-            price: '700',
-            features: ['Full gym access', '5 group classes/month', 'Locker room access']
-        },
-        {
-            name: 'Family',
-            price: '550',
-            features: ['Up to 4 members', 'Shared benefits', 'Family workout sessions']
+            name: 'Signature',
+            price: '4,00,000',
+            featured: false,
+            features: ['All Classic Features', 'Unlimited PT Sessions', 'Spa & Recovery', 'VIP Lounge Access', 'Priority Booking']
         }
     ];
 
@@ -340,8 +337,8 @@ const Home = () => {
                                 {plan.featured && <span className="plan-badge">Popular</span>}
                                 <h3>{plan.name}</h3>
                                 <div className="plan-price">
-                                    <span className="price-amount">${plan.price}</span>
-                                    <span className="price-period">/mo</span>
+                                    <span className="price-amount">₹{plan.price}</span>
+                                    <span className="price-period">/year</span>
                                 </div>
                                 <ul className="plan-features">
                                     {plan.features.map((feature, i) => (

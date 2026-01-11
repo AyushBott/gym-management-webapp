@@ -8,65 +8,42 @@ const Memberships = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    // Static fallback plans matching Home page
+    // Static fallback plans matching FitClass rate card
     const staticPlans = [
         {
             id: 1,
-            name: 'Premium',
-            price: 320,
-            durationDays: 30,
-            description: 'Perfect for serious fitness enthusiasts',
-            isPopular: true,
-            features: ['Professional Trainers', '24/7 Access', 'Personal Diet Guidance', 'Free Parking', 'Locker Access']
+            name: 'Prime',
+            price: 40000,
+            durationDays: 365,
+            description: 'Perfect for getting started with fitness',
+            isPopular: false,
+            features: ['Full Gym Access', 'Group Classes', 'Locker Room Access', 'Basic Equipment', 'Fitness Assessment', 'Mobile App Access']
         },
         {
             id: 2,
-            name: 'Advanced',
-            price: 1200,
-            durationDays: 90,
-            description: 'Best value for long-term commitment',
-            isPopular: false,
-            features: ['All Premium Features', 'Quarterly Health Checkup', 'Priority Booking', 'Guest Passes (2/month)']
+            name: 'Classic',
+            price: 60000,
+            durationDays: 365,
+            description: 'Best value for serious fitness enthusiasts',
+            isPopular: true,
+            features: ['All Prime Features', 'Personal Training (4/month)', '24/7 Gym Access', 'Nutrition Guidance', 'Priority Booking', 'Recovery Zone Access']
         },
         {
             id: 3,
-            name: 'Basic',
-            price: 99,
-            durationDays: 30,
-            description: 'Great for getting started',
+            name: 'Signature',
+            price: 400000,
+            durationDays: 365,
+            description: 'Ultimate luxury fitness experience',
             isPopular: false,
-            features: ['Gym Access', 'Basic Equipment', 'Group Classes', 'Locker Access']
-        },
-        {
-            id: 4,
-            name: 'Family',
-            price: 2500,
-            durationDays: 90,
-            description: 'Perfect for families up to 4 members',
-            isPopular: false,
-            features: ['4 Member Access', 'All Premium Features', 'Kids Zone Access', 'Family Events']
+            features: ['All Classic Features', 'Unlimited PT Sessions', 'Spa & Sauna Access', 'VIP Lounge Access', 'Dedicated Personal Trainer', 'Unlimited Guest Passes']
         }
     ];
 
     useEffect(() => {
-        fetchPlans();
+        // Use static plans from FitClass rate card
+        setPlans(staticPlans);
+        setLoading(false);
     }, []);
-
-    const fetchPlans = async () => {
-        try {
-            const response = await api.get('/memberships/plans');
-            if (response.data?.plans?.length > 0) {
-                setPlans(response.data.plans);
-            } else {
-                setPlans(staticPlans);
-            }
-        } catch (error) {
-            console.error('Error fetching plans:', error);
-            setPlans(staticPlans);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handlePurchase = (planId) => {
         navigate('/register');
@@ -98,7 +75,7 @@ const Memberships = () => {
                             {plans.map((plan, idx) => (
                                 <div
                                     key={plan.id}
-                                    className={`plan-card ${plan.isPopular ? 'featured' : ''}`}
+                                    className="plan-card"
                                     style={{ animationDelay: `${idx * 100}ms` }}
                                 >
                                     {plan.isPopular && (
@@ -111,7 +88,7 @@ const Memberships = () => {
                                     <div className="plan-price">
                                         <span className="currency">₹</span>
                                         <span className="amount">{plan.price.toLocaleString()}</span>
-                                        <span className="period">/{plan.durationDays} days</span>
+                                        <span className="period">/year</span>
                                     </div>
                                     <ul className="plan-features">
                                         {plan.features && Array.isArray(plan.features) && plan.features.map((feature, fidx) => (
@@ -122,7 +99,7 @@ const Memberships = () => {
                                         ))}
                                     </ul>
                                     <button
-                                        className={`btn ${plan.isPopular ? 'btn-dark' : 'btn-primary'}`}
+                                        className="btn btn-primary"
                                         onClick={() => handlePurchase(plan.id)}
                                     >
                                         Get Started

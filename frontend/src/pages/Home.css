@@ -565,13 +565,13 @@
             rgba(20, 20, 20, 1) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-xl);
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-2xl) var(--spacing-3xl);
     position: relative;
     opacity: 0;
     transform: translateY(30px);
     transition: all var(--motion-base) var(--ease-interactive);
-    min-width: 300px;
-    max-width: 320px;
+    min-width: 340px;
+    max-width: 380px;
     flex-shrink: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
